@@ -15,8 +15,16 @@ class Drone(ABC):
     #   ==> Partagé par toutes les instances.
     _compteur_drones: int = 0
 
-    def __init__(self, identifiant: str, latitude: float, longitude: float) -> None:
+    # Malheureusement, les méthodes statiques ne peuvent pas modifier les variables statiques. C'est dum >:(
+    # @staticmethod
+    # def incrementer_compteur_drones(nombre_a_ajouter: int) -> None:
+    #     _compteur_drones += nombre_a_ajouter 
 
+    def __init__(self, identifiant: str, latitude: float, longitude: float) -> None:
+        self.identifiant = identifiant
+        self.latitude = latitude
+        self.longitude = longitude
+        self._batterie = 100.00
         Drone._compteur_drones += 1
 
     @abstractmethod
