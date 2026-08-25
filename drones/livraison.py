@@ -1,7 +1,9 @@
-from 
+from .statut_livraison import StatutLivraison
+
+
 class Livraison :
 
-    def __init__(self, destination: str, priorite: int, poids_colis: float, statut: str = ""):
+    def __init__(self, destination: str, priorite: int, poids_colis: float):
         """
         Classe qui contient l'info des livraisons
         """
@@ -9,4 +11,6 @@ class Livraison :
         self.destination = destination
         self.priorite = priorite
         self.poids_colis = poids_colis
+        self.statut = StatutLivraison.EN_COURS
+
 
