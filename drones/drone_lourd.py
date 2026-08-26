@@ -12,3 +12,6 @@ class DroneLourd(Drone):
         super().__init__(identifiant, latitude, longitude)
 
         self.consommation_batterie = consommation_batterie
+
+    def consommation_batterie(self):
+        pass

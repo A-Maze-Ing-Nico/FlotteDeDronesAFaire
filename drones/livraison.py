@@ -44,10 +44,10 @@ class Livraison:
 
         # Si un attribut est privé, devrait-on mettre un getter???
         @property
-        def statut(self):
+        def _statut(self):
             return self._statut
 
         # C'est weird ici le self qui s'est ajouté...
-        @self._statut.setter
+        @_statut.setter
         def _statut(self, statut: StatutLivraison):
             self._statut = statut
