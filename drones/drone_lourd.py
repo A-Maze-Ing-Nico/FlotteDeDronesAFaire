@@ -13,5 +13,5 @@ class DroneLourd(Drone):
 
         self.consommation_batterie = consommation_batterie
 
-    def consommation_batterie(self):
+    def consommer_batterie(self):
         pass

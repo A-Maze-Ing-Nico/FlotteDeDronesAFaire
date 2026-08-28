@@ -33,54 +33,53 @@ class Drone(ABC):
 
     @property
     def identifiant(self):
-        return self.identifiant
+        return self._identifiant
 
     @identifiant.setter
     def identifiant(self, identifiant: str):
         if identifiant == "":
             pass
-        self.identifiant = identifiant
+        self._identifiant = identifiant
 
     @property
     def latitude(self):
-        return self.latitude
+        return self._latitude
 
     @latitude.setter
     def latitude(self, latitude: int):
-        self.latitude = latitude
+        self._latitude = latitude
 
     @property
     def longitude(self):
-        return self.longitude
+        return self._longitude
 
     @longitude.setter
     def longitude(self, longitude: int):
-        self.longitude = longitude
+        self._longitude = longitude
 
     @property
-    def _batterie(self):
+    def batterie(self):
         return self._batterie
 
-    @_batterie.setter
-    def _batterie(self, _batterie: float):
-        if _batterie < 0 | _batterie > self._batterie_max :
+    @batterie.setter
+    def batterie(self, batterie: float):
+        if batterie < 0 or batterie > self._batterie_max :
             pass
-        self._batterie = _batterie
+        self._batterie = batterie
 
     @property
-    def _livraison_actuelle(self):
+    def livraison_actuelle(self):
         return self._livraison_actuelle
 
-    @_livraison_actuelle.setter
-    def _livraison_actuelle(self, livraison_actuelle: Livraison):
+    @livraison_actuelle.setter
+    def livraison_actuelle(self, livraison_actuelle: Livraison):
         self._livraison_actuelle = livraison_actuelle
 
     # La batterie max ne devrait pas changer
     @property
-    def _batterie_max(self):
+    def batterie_max(self):
         return self._batterie_max
 
-    
     @abstractmethod
-    def consommation_batterie(self):
+    def consommer_batterie(self) -> None:
         pass
