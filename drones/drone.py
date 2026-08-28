@@ -19,7 +19,7 @@ class Drone(ABC):
     # Malheureusement, les méthodes statiques ne peuvent pas modifier les variables statiques. C'est dum >:(
     # @staticmethod
     # def incrementer_compteur_drones(nombre_a_ajouter: int) -> None:
-    #     _compteur_drones += nombre_a_ajouter 
+    #     _compteur_drones += nombre_a_ajouter
 
     def __init__(self, identifiant: str, latitude: float, longitude: float) -> None:
         self.identifiant = identifiant
@@ -30,6 +30,7 @@ class Drone(ABC):
         self._livraison_actuelle: Livraison = None
         self._batterie_max: float = self._batterie
 
+        # Je ne comprenais pas le concept de charge_max. Je croyais c'était en lien avec la recharge de la batterie, oops.
 
     @property
     def identifiant(self):
@@ -63,7 +64,7 @@ class Drone(ABC):
 
     @batterie.setter
     def batterie(self, batterie: float):
-        if batterie < 0 or batterie > self._batterie_max :
+        if batterie < 0 or batterie > self._batterie_max:
             pass
         self._batterie = batterie
 

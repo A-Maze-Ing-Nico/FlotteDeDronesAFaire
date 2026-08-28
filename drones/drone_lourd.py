@@ -10,8 +10,15 @@ class DroneLourd(Drone):
         consommation_batterie: float = 10,
     ):
         super().__init__(identifiant, latitude, longitude)
-
+        # Il manque un getter et setter
         self.consommation_batterie = consommation_batterie
 
     def consommer_batterie(self):
-        pass
+        if self._livraison_actuelle != None:
+            self._batterie -= (
+                self._livraison_actuelle.poids_colis * self.consommation_batterie
+            )
+            if self._batterie < 0:
+                self._batterie = 0
+        else:
+            pass
