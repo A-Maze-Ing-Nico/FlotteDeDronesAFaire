@@ -1,5 +1,27 @@
 from nicegui import ui
 
-ui.label("Bienvenu dans votre maison intelligente!!!")
+with ui.column().classes("w-full"):
+    with ui.card(align_items="center").classes("bg-blue-300 w-full rounded-t-lg"):
+        with ui.row(align_items="end").classes("bg-blue-400 w-full"):
+            # Il faut figuré un moyen d'aligner ces deux labels, probablement avec flex
+            ui.label("Ma maison intelligente").classes("text-white text-lg")
+            ui.label("En ligne").classes("text-white text-lg")
+
+    ui.label("Salon").classes("text-lg")
+    with ui.column().classes("bg-red-100 rounded-t-lg"):
+        with ui.row().classes("p-4"):
+            with ui.card():
+                ui.label("Lumière")
+                switch = ui.switch("Allumée", value=False)
+                slider = ui.slider(
+                    min=0,
+                    max=100,
+                    value=60,
+                    # La fonction lambda ci-dessous retourne un bool
+                    on_change=lambda event: switch.set_value(event.value != 0),
+                )
+            with ui.card():
+                ui.label("Climatisation")
+
 
 ui.run()
